@@ -112,6 +112,7 @@
             this.telefon_felvetel.TabIndex = 6;
             this.telefon_felvetel.Text = "Új telefon";
             this.telefon_felvetel.UseVisualStyleBackColor = true;
+            this.telefon_felvetel.Click += new System.EventHandler(this.telefon_felvetel_Click);
             // 
             // nud_ar
             // 
@@ -156,6 +157,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_ar)).EndInit();
