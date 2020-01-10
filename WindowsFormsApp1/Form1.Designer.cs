@@ -129,6 +129,7 @@
             this.adatmodositas.TabIndex = 8;
             this.adatmodositas.Text = "Adatmódosítás";
             this.adatmodositas.UseVisualStyleBackColor = true;
+            this.adatmodositas.Click += new System.EventHandler(this.adatmodositas_Click);
             // 
             // telefon_torlese
             // 
@@ -145,8 +146,10 @@
             this.dataGridView_Telefonok.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView_Telefonok.Location = new System.Drawing.Point(0, 171);
             this.dataGridView_Telefonok.Name = "dataGridView_Telefonok";
+            this.dataGridView_Telefonok.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Telefonok.Size = new System.Drawing.Size(462, 150);
             this.dataGridView_Telefonok.TabIndex = 1;
+            this.dataGridView_Telefonok.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Telefonok_CellClick);
             // 
             // Form1
             // 

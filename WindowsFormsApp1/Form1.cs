@@ -79,5 +79,34 @@ namespace WindowsFormsApp1
             }
             DataGridVieW_Telefonok_Update();
         }
+
+        private void dataGridView_Telefonok_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int kivalasztott_sor_index = dataGridView_Telefonok.SelectedRows[0].Index;
+            tb_marka.Text = dataGridView_Telefonok.Rows[kivalasztott_sor_index].Cells["Marka"].Value.ToString();
+            tb_tipus.Text = dataGridView_Telefonok.Rows[kivalasztott_sor_index].Cells["Tipus"].Value.ToString();
+            nud_ar.Value = (int)dataGridView_Telefonok.Rows[kivalasztott_sor_index].Cells["Ar"].Value;
+        }
+
+        private void adatmodositas_Click(object sender, EventArgs e)
+        {
+            Program.sql.CommandText = "UPDATE `telefon` SET `marka` = @marka, `tipus` = @tipus, `ar` = @ar where `id` = @id";
+            Program.sql.Parameters.Clear();
+            int sor_index = dataGridView_Telefonok.SelectedRows[0].Index;
+            Program.sql.Parameters.AddWithValue("@id", (int)dataGridView_Telefonok.Rows[sor_index].Cells["Id"].Value);
+            Program.sql.Parameters.AddWithValue("@marka", tb_marka.Text);
+            Program.sql.Parameters.AddWithValue("@tipus", tb_tipus.Text);
+            Program.sql.Parameters.AddWithValue("@ar", (int)nud_ar.Value);
+            try
+            {
+                Program.sql.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            DataGridVieW_Telefonok_Update();
+        }
     }
 }
